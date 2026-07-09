@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I am Sorry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        h1 {
+            color: #d9534f;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 50px;
+            position: relative;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            background-color: #4cae4c;
+            transform: scale(1.05);
+        }
+
+        #noBtn {
+            background-color: #d9534f;
+            color: white;
+            position: absolute;
+            left: 55%; /* Initial alignment position */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 id="title">Sorry Apoorva zii 🥺</h1>
+        <p id="message">Will you please accept my apology?</p>
+        
+        <div class="btn-container">
+            <button id="yesBtn" onclick="acceptApology()">Yes</button>
+            <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            
+            // Calculate random positions within the visible viewport bounds
+            // Subtracting 100 to keep the button from moving off-screen
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            
+            // Change position type to fixed so it can teleport anywhere on screen
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function acceptApology() {
+            // Update the UI once they click Yes
+            document.getElementById('title').innerText = "Thanksyouu---heart emojis";
+            document.getElementById('message').innerText = "1 melody added to your account";
+            
+            // Hide the buttons after acceptance
+            document.querySelector('.btn-container').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
